@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>点赞</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script type="text/javascript" src="./node_modules/systemjs/dist/system.js"></script>
+    <script type="text/javascript" src="./unit/thumbs.spec.js"></script>
+    <script type="text/javascript">
+    SystemJS.config({
+        baseURL: './',
+        transpiler: 'plugin-babel',
+        map: {
+            'plugin-babel': 'node_modules/systemjs-plugin-babel/plugin-babel.js',
+            'systemjs-babel-build': 'node_modules/systemjs-plugin-babel/systemjs-babel-browser.js'
+        }
+    })
+
+    SystemJS.import('./newjs/thumbs.js').then(component => {
+        // console.log(component.thumbs.)
+        $.thumbs('fingerWrap')
+    })
+    </script>
+</head>
+
+<body>
+    <div class="finger-wrap" id="fingerWrap"></div>
+</body>
+
+</html>
